@@ -1,5 +1,10 @@
 language: python
 
+cache:
+  directories:
+    - .tox
+    - $HOME/.cache/pip
+
 matrix:
   include:
     - python: 2.7
@@ -33,10 +38,3 @@ script:
 
 after_success:
   - codecov --env TRAVIS_OS_NAME,TOXENV
-
-notifications:
-  irc:
-    channels:
-      - "irc.freenode.org#pypa-dev"
-    use_notice: true
-    skip_join: true
